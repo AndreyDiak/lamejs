@@ -1,6 +1,14 @@
 // ES Module wrapper for lamejs CommonJS module
-// This will be handled by Vite's CommonJS transformation
+// Import the CommonJS module and re-export as ES modules
+import * as lamejs from './src/js/index.js';
 
-// Re-export the CommonJS module as ES modules
-export { default, Mp3Encoder, WavHeader } from './src/js/index.js';
+// Export named exports
+export const Mp3Encoder = lamejs.Mp3Encoder;
+export const WavHeader = lamejs.WavHeader;
+
+// Export default as an object with both exports
+export default {
+  Mp3Encoder: lamejs.Mp3Encoder,
+  WavHeader: lamejs.WavHeader
+};
 
