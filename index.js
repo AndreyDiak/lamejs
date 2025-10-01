@@ -1,14 +1,14 @@
 // ES Module wrapper for lamejs CommonJS module
-// Import the CommonJS module and re-export as ES modules
-import * as lamejs from './src/js/index.js';
+// Import the CommonJS module as a namespace to avoid require issues
+import * as lamejsModule from './src/js/index.js';
 
-// Export named exports
-export const Mp3Encoder = lamejs.Mp3Encoder;
-export const WavHeader = lamejs.WavHeader;
+// Export the classes directly
+export const Mp3Encoder = lamejsModule.Mp3Encoder;
+export const WavHeader = lamejsModule.WavHeader;
 
-// Export default as an object with both exports
+// Export default for compatibility
 export default {
-  Mp3Encoder: lamejs.Mp3Encoder,
-  WavHeader: lamejs.WavHeader
+  Mp3Encoder: lamejsModule.Mp3Encoder,
+  WavHeader: lamejsModule.WavHeader
 };
 
